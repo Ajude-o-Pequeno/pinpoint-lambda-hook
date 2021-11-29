@@ -1,0 +1,43 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogStream",
+        "logs:PutLogEvents",
+        "logs:CreateLogGroup"
+      ],
+      "Resource": "arn:aws:logs:*:*:*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": "mobiletargeting:SendMessages",
+      "Resource": "arn:aws:mobiletargeting:us-east-1:983768870733:apps/*/*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "mobiletargeting:GetEndpoint",
+        "mobiletargeting:UpdateEndpoint",
+        "mobiletargeting:PutEvents"
+      ],
+      "Resource": "arn:aws:mobiletargeting:us-east-1:983768870733:apps/*/endpoints/*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": "mobiletargeting:PhoneNumberValidate",
+      "Resource": "arn:aws:mobiletargeting:us-east-1:983768870733:phone/number/validate"
+    },
+    {
+      "Effect": "Allow",
+      "Action": "mobiletargeting:GetCampaign",
+      "Resource": "arn:aws:mobiletargeting:us-east-1:983768870733:apps/*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": "mobiletargeting:GetEmailTemplate",
+      "Resource": "arn:aws:mobiletargeting:us-east-1:983768870733:templates/*/EMAIL"
+    }
+  ]
+}
