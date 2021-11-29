@@ -38,6 +38,22 @@
       "Effect": "Allow",
       "Action": "mobiletargeting:GetEmailTemplate",
       "Resource": "arn:aws:mobiletargeting:us-east-1:983768870733:templates/*/EMAIL"
+    },
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "pinpoint.us-east-1.amazonaws.com"
+      },
+      "Action": "lambda:InvokeFunction",
+      "Resource": "{arn:aws:lambda:us-east-1:983768870733:function:*}",
+      "Condition": {
+        "StringEquals": {
+          "AWS:SourceAccount": "983768870733"
+        },
+        "ArnLike": {
+          "AWS:SourceArn": "arn:aws:mobiletargeting:us-east-1:983768870733:apps/*/campaigns/*"
+        }
+      }
     }
   ]
 }
