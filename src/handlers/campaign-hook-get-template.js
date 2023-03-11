@@ -15,18 +15,21 @@ const getTemplateName = async (appId, cmpId) => {
   return response.CampaignResponse.TemplateConfiguration.EmailTemplate.Name
 }
 
+const recipientAddress = 'luiscabus@gmail.com'
+const senderAddress: 'Tha ONG Ajude o Pequeno <admin@ajudeopequeno.org>'
+
 const sendMessage = async (appId, templateName) => {
   var params = {
     ApplicationId: appId,
     MessageRequest: {
       Addresses: {
-        'luiscabus@gmail.com': {
+        [recipientAddress]: {
           ChannelType: 'EMAIL'
         }
       },
       MessageConfiguration: {
         EmailMessage: {
-          FromAddress: 'Tha ONG Ajude o Pequeno <admin@ajudeopequeno.org>',
+          FromAddress: senderAddress,
         }
       },
       TemplateConfiguration: {
